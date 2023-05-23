@@ -15,10 +15,10 @@ const Formulario = () => {
       apellido.trim() !== "" &&
       dni.trim() !== ""
     ) {
-      alert(`nombre:${nombre}
-            apellido:${apellido}
-            dni:${dni}
-            email:${email}`);
+      alert(`nombre: ${nombre}
+            apellido: ${apellido}
+            dni: ${dni}
+            email: ${email}`);
             
             setNombre("");
             setApellido("");
@@ -36,6 +36,9 @@ const Formulario = () => {
           <Form.Control
             type="text"
             placeholder="Nombre EJ: Federico"
+            minLength={3}
+            maxLength={30}
+            required
             onChange={(e) => setNombre(e.target.value)}
             value={nombre}
           />
@@ -44,6 +47,9 @@ const Formulario = () => {
           <Form.Control
             type="text"
             placeholder="Apellido Ej: Ledesma"
+            minLength={3}
+            maxLength={30}
+            required
             onChange={(e) => setApellido(e.target.value)}
             value={apellido}
           />
@@ -52,6 +58,9 @@ const Formulario = () => {
           <Form.Control
             type="number"
             placeholder="D.N.I Ej: 44555777"
+            min={1111111}
+            max={9999999}
+            required
             onChange={(e) => setDni(e.target.value)}
             value={dni}
           />
@@ -60,6 +69,9 @@ const Formulario = () => {
           <Form.Control
             type="email"
             placeholder="Email Ej: fede@gmail.com"
+            minLength={9}
+            maxLength={60}
+            required
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
