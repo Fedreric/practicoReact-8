@@ -1,4 +1,4 @@
-# Trabajo practico N°1: React - Lista de empleados!
+# Trabajo practico N°1: React - Formulario simple!
 
 ![React](https://blog.wildix.com/wp-content/uploads/2020/06/react-logo.jpg)
 
