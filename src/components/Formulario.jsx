@@ -1,25 +1,68 @@
 import { Form, Button, Container } from "react-bootstrap";
 import { useState } from "react";
 const Formulario = () => {
-    const [nombre, setNombre] = useState('');
-    const [apellido, setApellido] = useState('');
-    const [dni, setDni] = useState('');
-    const [email, setEmail] = useState('');
+  const [nombre, setNombre] = useState("");
+  const [apellido, setApellido] = useState("");
+  const [dni, setDni] = useState("");
+  const [email, setEmail] = useState("");
 
-    return (
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validacionEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (
+      validacionEmail.test(email) &&
+      nombre.trim() !== "" &&
+      apellido.trim() !== "" &&
+      dni.trim() !== ""
+    ) {
+      alert(`nombre:${nombre}
+            apellido:${apellido}
+            dni:${dni}
+            email:${email}`);
+            
+            setNombre("");
+            setApellido("");
+            setDni("");
+            setEmail("");
+    }else{
+        alert('Completa todos los datos')
+    }
+  };
+
+  return (
     <Container>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="nombre">
-          <Form.Control type="text" placeholder="Nombre EJ: Federico" onChange={(e)=>setNombre(e.target.value)} value={nombre}/>
+          <Form.Control
+            type="text"
+            placeholder="Nombre EJ: Federico"
+            onChange={(e) => setNombre(e.target.value)}
+            value={nombre}
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="apellido">
-          <Form.Control type="text" placeholder="Apellido Ej: Ledesma" onChange={(e)=>setApellido(e.target.value)} value={apellido}/>
+          <Form.Control
+            type="text"
+            placeholder="Apellido Ej: Ledesma"
+            onChange={(e) => setApellido(e.target.value)}
+            value={apellido}
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="dni">
-          <Form.Control type="number" placeholder="D.N.I Ej: 44555777" onChange={(e)=>setDni(e.target.value)} value={dni}/>
+          <Form.Control
+            type="number"
+            placeholder="D.N.I Ej: 44555777"
+            onChange={(e) => setDni(e.target.value)}
+            value={dni}
+          />
         </Form.Group>
         <Form.Group className="mb-3" controlId="email">
-          <Form.Control type="email" placeholder="Email Ej: fede@gmail.com" onChange={(e)=>setEmail(e.target.value)} value={email}/>
+          <Form.Control
+            type="email"
+            placeholder="Email Ej: fede@gmail.com"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
+          />
         </Form.Group>
         <Button variant="primary" type="submit">
           Enviar
