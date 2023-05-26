@@ -59,7 +59,7 @@ const Formulario = () => {
             type="number"
             placeholder="D.N.I Ej: 44555777"
             min={1111111}
-            max={9999999}
+            max={99999999}
             required
             onChange={(e) => setDni(e.target.value)}
             value={dni}
